@@ -4,7 +4,12 @@ using System.Collections.Generic;
 namespace Project.Scripts.Architecture.CodeBase.GameStates {
   public class State : IState {
     private readonly List<Transition> _transitions = new();
+    protected IGameStateMachine _gameStateMachine;
 
+    public void Setup(IGameStateMachine gameStateMachine) {
+      _gameStateMachine = gameStateMachine;
+    }
+    
     public void Update() { }
 
     public Transition GetAvailableTransitions() {

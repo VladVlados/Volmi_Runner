@@ -4,7 +4,7 @@ using System.Linq;
 using Project.Scripts.Architecture.CodeBase.ConstLogic;
 using UnityEngine;
 
-namespace Project.Scripts.Architecture.CodeBase.Services.GlobalData {
+namespace Project.Scripts.Architecture.CodeBase.Services.GlobalData.Core {
   public class GlobalDataService : IGlobalDataService {
     private Dictionary<Type, ItemGlobalData> _staticDataMap;
 

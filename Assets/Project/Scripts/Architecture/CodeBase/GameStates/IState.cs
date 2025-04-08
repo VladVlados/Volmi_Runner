@@ -5,5 +5,6 @@ namespace Project.Scripts.Architecture.CodeBase.GameStates {
     void Enter();
     void PhysicsUpdate();
     bool IsActive { get; }
+    void Setup(IGameStateMachine gameStateMachine);
   }
 }

@@ -92,6 +92,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _screenLoader: {fileID: 1153436710779166489, guid: 6204c010eb67a9448b56a7dfa0aa221c,
     type: 3}
+  _uiManager: {fileID: 1681313615987778403, guid: dc51884cb2ef7dc40a877aabd253f126,
+    type: 3}
 --- !u!114 &-7061156341328108002
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,6 +12,8 @@ namespace Project.Scripts.Architecture.CodeBase.UI.LoadScreen {
     [SerializeField]
     private ScreenLoaderAnimation _loaderAnimation;
     [SerializeField]
+    private CanvasGroup _interactableGroup;
+    [SerializeField]
     private Button _skipButton;
 
     private ICoroutineHandler _coroutineHandler;
@@ -28,10 +30,16 @@ namespace Project.Scripts.Architecture.CodeBase.UI.LoadScreen {
     }
 
     public void StartIntro() {
+      _interactableGroup.interactable = true;
+      _interactableGroup.blocksRaycasts = true;
+      _interactableGroup.alpha = 1f;
       _introRoutine = _coroutineHandler.StartCoroutine(ShowIntroRoutine());
     }
 
     public void HideIntro() {
+      _interactableGroup.interactable = false;
+      _interactableGroup.blocksRaycasts = false;
+      _interactableGroup.alpha = 0f;
       _loaderAnimation.Stop();
     }
 

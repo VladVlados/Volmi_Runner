@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 8355704516152918233}
   - component: {fileID: 4794405166620560170}
   - component: {fileID: 1153436710779166489}
+  - component: {fileID: 7143623687554252271}
   m_Layer: 5
   m_Name: IntroScreen
   m_TagString: Untagged
@@ -197,9 +198,9 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ReferenceResolution: {x: 1080, y: 1920}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -219,7 +220,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _loaderAnimation:
     _circleAnimation: {fileID: 2341087006990389369}
+  _interactableGroup: {fileID: 7143623687554252271}
   _skipButton: {fileID: 8779053752351162663}
+--- !u!225 &7143623687554252271
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2158513605470373358}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2522731648480640643
 GameObject:
   m_ObjectHideFlags: 0

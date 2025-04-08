@@ -1,7 +1,7 @@
 using Project.Scripts.Architecture.CodeBase.Services.CoroutineHandler;
 using Project.Scripts.Architecture.CodeBase.Services.Events;
 using Project.Scripts.Architecture.CodeBase.Services.Factory;
-using Project.Scripts.Architecture.CodeBase.Services.GlobalData;
+using Project.Scripts.Architecture.CodeBase.Services.GlobalData.Core;
 using Project.Scripts.Architecture.CodeBase.Services.Save;
 using Project.Scripts.Architecture.CodeBase.Services.SceneLoader;
 using UnityEngine;
