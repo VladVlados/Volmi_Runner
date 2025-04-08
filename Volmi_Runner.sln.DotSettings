@@ -46,10 +46,12 @@
 	<s:Boolean x:Key="/Default/Environment/SettingsMigration/IsMigratorApplied/=JetBrains_002EReSharper_002EPsi_002ECSharp_002ECodeStyle_002ECSharpPlaceEmbeddedOnSameLineMigration/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/Environment/SettingsMigration/IsMigratorApplied/=JetBrains_002EReSharper_002EPsi_002ECSharp_002ECodeStyle_002ECSharpUseContinuousIndentInsideBracesMigration/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/Environment/SettingsMigration/IsMigratorApplied/=JetBrains_002EReSharper_002EPsi_002ECSharp_002ECodeStyle_002ESettingsUpgrade_002EMigrateBlankLinesAroundFieldToBlankLinesAroundProperty/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/Environment/SettingsMigration/IsMigratorApplied/=JetBrains_002ERider_002EBackend_002EFeatures_002EDebugger_002ESettings_002EMigration_002ERiderSymbolServersSettingsUpgrade/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=TabNavigationExplainer/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue">True</s:Boolean>
 	<s:String x:Key="/Default/Housekeeping/OptionsDialog/SelectedPageId/@EntryValue">CSharpOtherPage</s:String>
+	<s:Boolean x:Key="/Default/RiderDebugger/RiderRestoreDecompile/RestoreDecompileSetting/@EntryValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/SymbolServers/RestoreDecompileSetting/@EntryValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/UserDictionary/Words/=_041F_043E_0441_043B_0435_0434_043E_0432_0430_0442_0435_043B_044C_043D_043E_0441_0442_044C/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/UserDictionary/Words/=_0434_0440_0443_0433_043E_0439/@EntryIndexedValue">True</s:Boolean>
