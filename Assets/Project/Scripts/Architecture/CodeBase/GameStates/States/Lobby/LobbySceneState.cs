@@ -2,6 +2,7 @@ using Project.Scripts.Architecture.CodeBase.GameStates.States.Gameplay;
 using Project.Scripts.Architecture.CodeBase.UI;
 using Project.Scripts.Architecture.CodeBase.UI.Core;
 using Project.Scripts.Architecture.CodeBase.UI.Panels.Lobby;
+using Zenject;
 
 namespace Project.Scripts.Architecture.CodeBase.GameStates.States.Lobby {
   public class LobbySceneState : State {
@@ -9,7 +10,7 @@ namespace Project.Scripts.Architecture.CodeBase.GameStates.States.Lobby {
     
     private LobbyNavigationPanel _lobbyNavigationPanel;
 
-    public LobbySceneState(IUIManager uiManager) {
+    public LobbySceneState(IUIManager uiManager){
       _uiManager = uiManager;
     }
 

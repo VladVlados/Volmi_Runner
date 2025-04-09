@@ -4,19 +4,24 @@ using Project.Scripts.Architecture.CodeBase.GameStates.States;
 using Project.Scripts.Architecture.CodeBase.GameStates.States.GameSetupStates;
 using Project.Scripts.Architecture.CodeBase.GameStates.States.Lobby;
 using Project.Scripts.Architecture.CodeBase.Services.Events;
+using Project.Scripts.Architecture.CodeBase.Signal;
 using Zenject;
 
 namespace Project.Scripts.Architecture.CodeBase.GameStates {
   public class GameStateMachine : IGameStateMachine {
     private readonly Dictionary<Type, IExitState> _stateMap;
     private readonly IMonoEventsService _monoEvent;
-    private readonly DiContainer _container;
+    private readonly SignalBus _signalBus;
+    
+    private DiContainer _container;
 
     private IState _activeState;
 
-    public GameStateMachine(DiContainer container) {
+    public GameStateMachine(DiContainer container, SignalBus signalBus) {
       _container = container;
-      _activeState = new NullState();
+      _signalBus = signalBus;
+      _activeState = _container.Instantiate<NullState>();
+      _signalBus.Subscribe<SceneReadySignal>(OnSceneReady);
 
       _monoEvent = _container.Resolve<IMonoEventsService>();
 
@@ -28,6 +33,7 @@ namespace Project.Scripts.Architecture.CodeBase.GameStates {
 
       foreach (State state in loadingStates) {
         state.Setup(this);
+        state.UpdateContainer(container);
       }
 
       for (var i = 0; i < loadingStates.Length - 1; i++) {
@@ -51,6 +57,7 @@ namespace Project.Scripts.Architecture.CodeBase.GameStates {
     ~GameStateMachine() {
       _monoEvent.OnUpdate -= Update;
       _monoEvent.OnFixedUpdate -= PhysicsUpdate;
+      _signalBus.Unsubscribe<SceneReadySignal>(OnSceneReady);
     }
 
     public void Update(object sender, EventArgs e) {
@@ -64,6 +71,16 @@ namespace Project.Scripts.Architecture.CodeBase.GameStates {
 
     public void PhysicsUpdate(object sender, EventArgs e) {
       _activeState.PhysicsUpdate();
+    }
+
+    private void OnSceneReady(SceneReadySignal signal) {
+      _container = signal.SceneContainer;
+
+      foreach (KeyValuePair<Type, IExitState> state in _stateMap) {
+        if (state.Value is State concreteState) {
+          concreteState.UpdateContainer(_container);
+        }
+      }
     }
 
     private void CheckTransitions() {
@@ -99,6 +116,7 @@ namespace Project.Scripts.Architecture.CodeBase.GameStates {
     private TState CreateState<TState>() where TState : class, IState {
       var state = _container.Instantiate<TState>();
       state.Setup(this);
+      state.UpdateContainer(_container);
       return state;
     }
   }

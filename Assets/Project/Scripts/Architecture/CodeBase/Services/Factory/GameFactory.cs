@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Project.Scripts.Architecture.CodeBase.ConstLogic;
 using UnityEngine;
 using Zenject;
 using Object = UnityEngine.Object;
@@ -21,9 +22,9 @@ namespace Project.Scripts.Architecture.CodeBase.Services.Factory {
       _container.Inject(returnedObject);
       return returnedObject;
     }
-
+    
     public void Init() {
-      _prefabMap = Resources.LoadAll<FactoryPrefab>("Poolable").ToDictionary(prefab => prefab.GetType(), prefab => prefab);
+      _prefabMap = Resources.LoadAll<FactoryPrefab>(Constants.Paths.POOLABLE_PATH).ToDictionary(prefab => prefab.GetType(), prefab => prefab);
     }
 
     public void Cleanup() { }
@@ -42,7 +43,7 @@ namespace Project.Scripts.Architecture.CodeBase.Services.Factory {
 
       AsyncInstantiateOperation<GameObject> asyncOp = Object.InstantiateAsync(prefab);
 
-      asyncOp.completed += operation => {
+      asyncOp.completed += _ => {
                              GameObject[] results = asyncOp.Result;
 
                              if (results == null || results.Length == 0 || results[0] == null) {

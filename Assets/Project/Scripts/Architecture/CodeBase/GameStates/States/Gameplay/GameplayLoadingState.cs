@@ -1,5 +1,4 @@
 using Project.Scripts.Architecture.CodeBase.ConstLogic;
-using Project.Scripts.Architecture.CodeBase.GameStates.States.Lobby;
 using Project.Scripts.Architecture.CodeBase.Services.SceneLoader;
 using Project.Scripts.Architecture.CodeBase.UI.Core;
 using Project.Scripts.Architecture.CodeBase.UI.LoadScreen;
@@ -12,7 +11,7 @@ namespace Project.Scripts.Architecture.CodeBase.GameStates.States.Gameplay {
     private readonly ILoaderScreenService _loaderScreenService;
     private readonly IUIManager _uiManager;
 
-    public GameplayLoadingState(ISceneLoader sceneLoader, ILoaderScreenService loaderScreenService, IUIManager uiManager)  {
+    public GameplayLoadingState(ISceneLoader sceneLoader, ILoaderScreenService loaderScreenService, IUIManager uiManager){
       _sceneLoader = sceneLoader;
       _loaderScreenService = loaderScreenService;
       _uiManager = uiManager;
@@ -28,8 +27,7 @@ namespace Project.Scripts.Architecture.CodeBase.GameStates.States.Gameplay {
 
     private void OnSceneLoaded() {
       Debug.Log("Scene Loading ---FINISHED---");
-      _loaderScreenService.HideIntro();
-      _gameStateMachine.Enter<GameplaySceneState>();
+      _gameStateMachine.Enter<GameplaySceneSetupState>();
       IsActive = false;
     }
   }

@@ -2,13 +2,14 @@ using Project.Scripts.Architecture.CodeBase.ConstLogic;
 using Project.Scripts.Architecture.CodeBase.Services.SceneLoader;
 using Project.Scripts.Architecture.CodeBase.UI.LoadScreen;
 using UnityEngine;
+using Zenject;
 
 namespace Project.Scripts.Architecture.CodeBase.GameStates.States.Lobby {
   public class LobbyLoadingState : State {
     private readonly ISceneLoader _sceneLoader;
     private readonly ILoaderScreenService _loaderScreenService;
 
-    public LobbyLoadingState(ISceneLoader sceneLoader, ILoaderScreenService loaderScreenService)  {
+    public LobbyLoadingState(ISceneLoader sceneLoader, ILoaderScreenService loaderScreenService) {
       _sceneLoader = sceneLoader;
       _loaderScreenService = loaderScreenService;
     }

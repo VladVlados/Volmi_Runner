@@ -3,17 +3,14 @@ using Project.Scripts.Architecture.CodeBase.Services.GlobalData.Core;
 using Project.Scripts.Architecture.CodeBase.Services.GlobalData.Types;
 using Project.Scripts.Architecture.CodeBase.UI.Core;
 using UnityEngine;
-using Zenject;
 
 namespace Project.Scripts.Architecture.CodeBase.GameStates.States.GameSetupStates {
   public class InitUIManagerState : State {
-    private readonly DiContainer _container;
     private readonly IGlobalDataService _globalDataService;
     private readonly IUIManager _uiManager;
 
-    public InitUIManagerState(DiContainer container, IGlobalDataService globalDataService, IUIManager uiManager) {
+    public InitUIManagerState(IGlobalDataService globalDataService, IUIManager uiManager){
       _globalDataService = globalDataService;
-      _container = container;
       _uiManager = uiManager;
     }
 

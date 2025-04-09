@@ -25,6 +25,7 @@ namespace Project.Scripts.Architecture.CodeBase.Services.Save {
     private void InitSavedDataList() {
       _playerSavedData = new List<PlayerSavedData> {
         new PlayerProgressData(),
+        new PlayerCustomizationData(),
       };
     }
   }

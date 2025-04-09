@@ -1,13 +1,20 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
+using Zenject;
 
 namespace Project.Scripts.Architecture.CodeBase.GameStates {
   public class State : IState {
+    protected DiContainer _container;
     private readonly List<Transition> _transitions = new();
     protected IGameStateMachine _gameStateMachine;
-
+    
     public void Setup(IGameStateMachine gameStateMachine) {
       _gameStateMachine = gameStateMachine;
+    }
+
+    public void UpdateContainer(DiContainer container) {
+      _container = container;
     }
     
     public void Update() { }

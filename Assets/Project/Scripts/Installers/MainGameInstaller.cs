@@ -4,6 +4,7 @@ using Project.Scripts.Architecture.CodeBase.Services.Factory;
 using Project.Scripts.Architecture.CodeBase.Services.GlobalData.Core;
 using Project.Scripts.Architecture.CodeBase.Services.Save;
 using Project.Scripts.Architecture.CodeBase.Services.SceneLoader;
+using Project.Scripts.Architecture.CodeBase.Signal;
 using UnityEngine;
 using Zenject;
 
@@ -17,6 +18,9 @@ namespace Project.Scripts.Installers {
       InstallSceneLoader();
       InstallGameFactory();
       InstallSavedData();
+      
+      SignalBusInstaller.Install(Container);
+      Container.DeclareSignal<SceneReadySignal>();
     }
 
     private void SetApplicationSettings() {
@@ -39,6 +43,9 @@ namespace Project.Scripts.Installers {
 
     private void InstallGameFactory() {
       Container.Bind<IGameFactory>().To<GameFactory>().AsSingle();
+      Container.Bind<IPlayerViewFactory>().To<PlayerViewFactory>().AsSingle();
+      Container.Bind<ITileViewFactory>().To<TileViewFactory>().AsSingle();
+      Container.Bind<IObstacleViewFactory>().To<ObstacleViewFactory>().AsSingle();
     }
 
     private void InstallSavedData() {

@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace Project.Scripts.Architecture.CodeBase.UI.Panels.Gameplay {
-  public class GameplayNavigationPanel  : UIPanel {
+  public class GameplayNavigationPanel : UIPanel {
     public event Action OnPlayButtonClick;
-    
+
     [SerializeField]
     private Button _playButton;
 
@@ -20,7 +20,6 @@ namespace Project.Scripts.Architecture.CodeBase.UI.Panels.Gameplay {
 
     private void AddListeners() {
       _playButton.onClick.AddListener(PlayButtonClick);
-   
     }
 
     private void PlayButtonClick() {

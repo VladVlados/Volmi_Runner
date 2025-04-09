@@ -3,6 +3,7 @@ namespace Project.Scripts.Architecture.CodeBase.ConstLogic {
     public class Paths {
       public const string GLOBAL_DATA = "GlobalData";
       public const string DATA_PATH = "/DataFile.json";
+      public const string POOLABLE_PATH = "Poolable";
     }
     
     public class SceneNames {

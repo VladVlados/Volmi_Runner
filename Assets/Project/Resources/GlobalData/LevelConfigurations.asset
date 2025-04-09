@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c71b594c78945b5b5e1244ced0e0614, type: 3}
+  m_Name: LevelConfigurations
+  m_EditorClassIdentifier: 
+  _configurations:
+  - _type: 0
+    _info:
+      _tileCount: 50
+      speed: 10
+  - _type: 1
+    _info:
+      _tileCount: 50
+      speed: 15
+  - _type: 2
+    _info:
+      _tileCount: 50
+      speed: 20

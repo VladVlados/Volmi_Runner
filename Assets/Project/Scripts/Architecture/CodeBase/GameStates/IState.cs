@@ -1,3 +1,5 @@
+using Zenject;
+
 namespace Project.Scripts.Architecture.CodeBase.GameStates {
   public interface IState : IExitState {
     void Update();
@@ -6,5 +8,6 @@ namespace Project.Scripts.Architecture.CodeBase.GameStates {
     void PhysicsUpdate();
     bool IsActive { get; }
     void Setup(IGameStateMachine gameStateMachine);
+    void UpdateContainer(DiContainer container);
   }
 }
