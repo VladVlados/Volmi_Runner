@@ -1,0 +1,42 @@
+using System;
+using Project.Scripts.Architecture.CodeBase.UI.Core;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace Project.Scripts.Architecture.CodeBase.UI.Panels.Lobby {
+  public class LobbyNavigationPanel : UIPanel {
+    public event Action OnPlayButtonClick;
+    public event Action OnHistoryButtonClick;
+    
+    [SerializeField]
+    private Button _playButton;
+    [SerializeField]
+    private Button _historyButton;
+
+    private void Awake() {
+      AddListeners();
+    }
+
+    private void OnDestroy() {
+      RemoveListeners();
+    }
+
+    private void AddListeners() {
+      _playButton.onClick.AddListener(PlayButtonClick);
+      _historyButton.onClick.AddListener(HistoryButtonClick);
+    }
+
+    private void HistoryButtonClick() {
+      OnHistoryButtonClick?.Invoke();
+    }
+
+    private void PlayButtonClick() {
+      OnPlayButtonClick?.Invoke();
+    }
+
+    private void RemoveListeners() {
+      _playButton.onClick.AddListener(PlayButtonClick);
+      _historyButton.onClick.AddListener(HistoryButtonClick);
+    }
+  }
+}

@@ -13,7 +13,10 @@ namespace Project.Scripts.Architecture.CodeBase.UI.Core {
 
     public T GetPanel<T>() where T : IUIPanel;
 
+    public void HideAll();
+
     public void EnableIntractable();
+    
     public void DisableIntractable();
 
     public bool Initialized { get; }

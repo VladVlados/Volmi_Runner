@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Project.Scripts.Architecture.CodeBase.GameStates.States;
 using Project.Scripts.Architecture.CodeBase.GameStates.States.GameSetupStates;
+using Project.Scripts.Architecture.CodeBase.GameStates.States.Lobby;
 using Project.Scripts.Architecture.CodeBase.Services.Events;
 using Zenject;
 

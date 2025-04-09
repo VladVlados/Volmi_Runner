@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: UIPanels
   m_EditorClassIdentifier: 
   _panelsList:
-  - {fileID: 4783053069029657526, guid: c13b6860fbe5dea4e9e509180790c228, type: 3}
+  - {fileID: 4783053069029657526, guid: e9a8d5dbe9ef9a14398b2e036e174d5e, type: 3}
+  - {fileID: 4669038993617254037, guid: c13b6860fbe5dea4e9e509180790c228, type: 3}
+  - {fileID: 4906180568833760035, guid: 1fbe553f6ca991b44a9c2f4abf25d855, type: 3}

@@ -76,9 +76,10 @@ namespace Project.Scripts.Architecture.CodeBase.UI.Core {
       }
     }
 
-    private void HideAll() {
+    public void HideAll() {
       for (int i = _panels.Count - 1; i >= 0; i--) {
         IUIPanel panel = _panels.PopLast();
+        panel.Close();
         panel.Instance.SetParent(ContainerHided);
       }
     }
