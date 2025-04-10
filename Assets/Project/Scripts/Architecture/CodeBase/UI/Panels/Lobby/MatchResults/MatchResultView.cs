@@ -14,7 +14,7 @@ namespace Project.Scripts.Architecture.CodeBase.UI.Panels.Lobby.MatchResults {
     [SerializeField]
     private TMP_Text _scoreText;
 
-    private List<RewardItemViewUI> _rewardItemView = new();
+    private readonly List<RewardItemViewUI> _rewardItemView = new();
 
     private RewardItemViewUIPool _rewardItemViewUIPool;
 

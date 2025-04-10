@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Project.Scripts.Architecture.CodeBase.Gameplay.Level;
 using Project.Scripts.Architecture.CodeBase.Services.GlobalData.Core;
 using UnityEngine;
 
@@ -39,7 +40,11 @@ namespace Project.Scripts.Architecture.CodeBase.Services.GlobalData.Types {
     [SerializeField]
     private int _tileCount;
     [SerializeField]
-    private float speed;
+    private float _speed;
+    [SerializeField]
+    private int _firstObstacleIndex;
+    [SerializeField]
+    private ObstacleName[] _targetRewards;
 
     public int TileCount {
       get {
@@ -48,7 +53,20 @@ namespace Project.Scripts.Architecture.CodeBase.Services.GlobalData.Types {
     }
     public float Speed {
       get {
-        return speed;
+        return _speed;
+      }
+    }
+
+    public int FirstObstacleIndex {
+      get {
+        return _firstObstacleIndex;
+
+      }
+    }
+
+    public ObstacleName[] TargetRewards {
+      get {
+        return _targetRewards;
       }
     }
   }

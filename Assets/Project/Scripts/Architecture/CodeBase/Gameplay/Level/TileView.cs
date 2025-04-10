@@ -52,6 +52,12 @@ namespace Project.Scripts.Architecture.CodeBase.Gameplay.Level {
     public Transform GetRandomPint() {
       return _spawnPoints[Random.Range(0, _spawnPoints.Count)];
     }
+
+    public List<Transform> SpawnPoints {
+      get {
+        return _spawnPoints;
+      }
+    }
   }
 
   public enum TileViewType {

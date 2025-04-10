@@ -27,6 +27,9 @@ namespace Project.Scripts.Installers {
       
       var playerController = Container.Instantiate<PlayerViewProvider>();
       Container.Bind<IPlayerViewProvider>().FromInstance(playerController).AsSingle();
+      
+      var playerMoveController = Container.Instantiate<PlayerMoveController>();
+      Container.Bind<IPlayerMoveController>().FromInstance(playerMoveController).AsSingle();
 
       var levelGenerator = Container.Instantiate<LevelGenerator>();
       Container.Bind<ILevelGenerator>().FromInstance(levelGenerator).AsSingle();

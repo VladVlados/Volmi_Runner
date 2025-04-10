@@ -4,10 +4,13 @@ using Project.Scripts.Architecture.CodeBase.Services.GlobalData.Core;
 using Project.Scripts.Architecture.CodeBase.Services.GlobalData.Types;
 using Project.Scripts.Architecture.CodeBase.Services.Save;
 using Project.Scripts.Architecture.CodeBase.Services.Save.DataTypes;
+using Project.Scripts.Architecture.CodeBase.UI.Core;
 using Project.Scripts.Architecture.CodeBase.UI.LoadScreen;
+using Project.Scripts.Architecture.CodeBase.UI.Panels.Gameplay;
 
 namespace Project.Scripts.Architecture.CodeBase.GameStates.States.Gameplay {
   public class GameplaySceneSetupState : State {
+    private readonly GameplayProgressPanel _gameplayProgressPanel;
     private readonly ILoaderScreenService _loaderScreenService;
     private readonly IGlobalDataService _globalDataService;
     private readonly IDataProvider _dataProvider;
@@ -15,10 +18,11 @@ namespace Project.Scripts.Architecture.CodeBase.GameStates.States.Gameplay {
     private IPlayerViewProvider _playerViewProvider;
     private ILevelGenerator _levelGenerator;
 
-    public GameplaySceneSetupState(IGlobalDataService globalDataService, IDataProvider dataProvider, ILoaderScreenService loaderScreenService) {
+    public GameplaySceneSetupState(IGlobalDataService globalDataService, IDataProvider dataProvider, ILoaderScreenService loaderScreenService, IUIManager uiManager) {
       _globalDataService = globalDataService;
       _dataProvider = dataProvider;
       _loaderScreenService = loaderScreenService;
+      _gameplayProgressPanel = uiManager.GetPanel<GameplayProgressPanel>();
     }
 
     public override void Enter() {
@@ -30,7 +34,8 @@ namespace Project.Scripts.Architecture.CodeBase.GameStates.States.Gameplay {
 
       _playerViewProvider.CreateActualPlayerView();
       _levelGenerator.GenerateLevel(configurationInfo);
-     
+      _gameplayProgressPanel.PrepareView(configurationInfo.TargetRewards);
+
       _loaderScreenService.HideIntro();
       _gameStateMachine.Enter<GameplayWaitingState>();
     }

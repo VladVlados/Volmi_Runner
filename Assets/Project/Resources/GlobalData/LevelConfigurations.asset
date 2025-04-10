@@ -16,12 +16,18 @@ MonoBehaviour:
   - _type: 0
     _info:
       _tileCount: 50
-      speed: 10
+      _speed: 10
+      _firstObstacleIndex: 4
+      _targetRewards: 000000000100000002000000
   - _type: 1
     _info:
       _tileCount: 50
-      speed: 15
+      _speed: 15
+      _firstObstacleIndex: 4
+      _targetRewards: 000000000100000002000000
   - _type: 2
     _info:
       _tileCount: 50
-      speed: 20
+      _speed: 20
+      _firstObstacleIndex: 4
+      _targetRewards: 000000000100000002000000

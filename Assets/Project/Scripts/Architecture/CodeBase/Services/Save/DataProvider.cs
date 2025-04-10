@@ -17,7 +17,7 @@ namespace Project.Scripts.Architecture.CodeBase.Services.Save {
 
     public void SaveGame() {
 #if !UNITY_EDITOR
-      string filePath = Application.persistentDataPath + Constants.Constants.Paths.DATA_PATH;
+      string filePath = Application.persistentDataPath + Constants.Paths.DATA_PATH;
 #else
       string filePath = Application.dataPath + Constants.Paths.DATA_PATH;
 #endif

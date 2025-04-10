@@ -2,6 +2,7 @@ using Project.Scripts.Architecture.CodeBase.Services.CoroutineHandler;
 using Project.Scripts.Architecture.CodeBase.Services.Events;
 using Project.Scripts.Architecture.CodeBase.Services.Factory;
 using Project.Scripts.Architecture.CodeBase.Services.GlobalData.Core;
+using Project.Scripts.Architecture.CodeBase.Services.Lobby;
 using Project.Scripts.Architecture.CodeBase.Services.Save;
 using Project.Scripts.Architecture.CodeBase.Services.SceneLoader;
 using Project.Scripts.Architecture.CodeBase.Signal;
@@ -14,11 +15,12 @@ namespace Project.Scripts.Installers {
       SetApplicationSettings();
       InstallCoroutineHandler();
       InstallGlobalData();
+      InstallSwipeDetector();
       InstallEventService();
       InstallSceneLoader();
       InstallGameFactory();
       InstallSavedData();
-      
+
       SignalBusInstaller.Install(Container);
       Container.DeclareSignal<SceneReadySignal>();
     }
@@ -28,8 +30,18 @@ namespace Project.Scripts.Installers {
       Input.multiTouchEnabled = false;
     }
 
+    private void InstallCoroutineHandler() {
+      var coroutineHandler = new GameObject(nameof(CoroutineHandler)).AddComponent<CoroutineHandler>();
+      DontDestroyOnLoad(coroutineHandler);
+      Container.Bind<ICoroutineHandler>().FromInstance(coroutineHandler).AsSingle();
+    }
+
     private void InstallGlobalData() {
       Container.Bind<IGlobalDataService>().To<GlobalDataService>().AsSingle();
+    }
+
+    private void InstallSwipeDetector() {
+      Container.Bind<ISwipeDetector>().To<SwipeDetector>().AsSingle();
     }
 
     private void InstallEventService() {
@@ -52,12 +64,6 @@ namespace Project.Scripts.Installers {
       Container.Bind<IDataProvider>().To<DataProvider>().AsSingle();
       Container.Bind<IDataLoader>().To<IDataProvider>().FromResolve();
       Container.Bind<IDataSaver>().To<IDataProvider>().FromResolve();
-    }
-
-    private void InstallCoroutineHandler() {
-      var coroutineHandler = new GameObject(nameof(CoroutineHandler)).AddComponent<CoroutineHandler>();
-      DontDestroyOnLoad(coroutineHandler);
-      Container.Bind<ICoroutineHandler>().FromInstance(coroutineHandler).AsSingle();
     }
   }
 }
