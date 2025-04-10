@@ -10,8 +10,6 @@ namespace Project.Scripts.Architecture.CodeBase.Services.Save.DataTypes {
     private ConfigurationType _levelConfiguration;
     private List<MatchResult> _results = new();
 
-    public override void Setup(IDataSaver saver) { }
-
     public void SetLevelConfiguration(ConfigurationType type) {
       _levelConfiguration = type;
       Save();
@@ -19,6 +17,7 @@ namespace Project.Scripts.Architecture.CodeBase.Services.Save.DataTypes {
 
     public void AddedNewResult(MatchResult result) {
       _results.Add(result);
+      Save();
     }
     
     public ConfigurationType ConfigurationType {

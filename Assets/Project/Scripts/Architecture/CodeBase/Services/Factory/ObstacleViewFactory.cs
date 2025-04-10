@@ -30,7 +30,7 @@ namespace Project.Scripts.Architecture.CodeBase.Services.Factory {
     }
 
     private void Init() {
-      _namePrefabMap = Resources.LoadAll<ObstacleView>(Constants.Paths.POOLABLE_PATH).ToDictionary(prefab => prefab.ObstacleInfo.ObstacleName, prefab => prefab);
+      _namePrefabMap = Resources.LoadAll<ObstacleView>(Constants.Paths.FACTORY_ITEMS).ToDictionary(prefab => prefab.ObstacleInfo.ObstacleName, prefab => prefab);
       _typePrefabMap = new Dictionary<ObstacleType, ObstacleNames>();
       
       foreach (KeyValuePair<ObstacleName, ObstacleView> view in _namePrefabMap) {

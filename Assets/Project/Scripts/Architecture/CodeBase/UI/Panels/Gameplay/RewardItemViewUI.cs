@@ -8,7 +8,7 @@ using UnityEngine.UI;
 using Zenject;
 
 namespace Project.Scripts.Architecture.CodeBase.UI.Panels.Gameplay {
-  public class RewardItemUI : FactoryPoolablePrefab {
+  public class RewardItemViewUI : FactoryPoolablePrefab {
     [SerializeField]
     private Image _itemView; 
     [SerializeField]
@@ -17,7 +17,7 @@ namespace Project.Scripts.Architecture.CodeBase.UI.Panels.Gameplay {
     private RewardConfigurations _rewardConfigurations;
     
     [Inject]
-    public void Construct(IGlobalDataService globalDataService) {
+    private void Construct(IGlobalDataService globalDataService) {
       _rewardConfigurations = globalDataService.GetGlobalData<RewardConfigurations>();
     }
     

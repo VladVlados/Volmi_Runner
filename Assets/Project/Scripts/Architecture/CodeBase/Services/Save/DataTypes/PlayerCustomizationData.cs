@@ -7,9 +7,7 @@ namespace Project.Scripts.Architecture.CodeBase.Services.Save.DataTypes {
   public class PlayerCustomizationData : PlayerSavedData {
     private PlayerViewType _selectedPlayerView;
     private TileViewType _tileView;
-
-    public override void Setup(IDataSaver saver) { }
-
+    
     public void SelectPlayerView(PlayerViewType view) {
       _selectedPlayerView = view;
       Save();

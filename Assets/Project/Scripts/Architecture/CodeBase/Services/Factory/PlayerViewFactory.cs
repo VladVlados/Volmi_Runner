@@ -34,7 +34,7 @@ namespace Project.Scripts.Architecture.CodeBase.Services.Factory {
     }
 
     private void Init() {
-      _prefabMap = Resources.LoadAll<PlayerView>(Constants.Paths.POOLABLE_PATH).ToDictionary(prefab => prefab.PlayerViewType, prefab => prefab);
+      _prefabMap = Resources.LoadAll<PlayerView>(Constants.Paths.FACTORY_ITEMS).ToDictionary(prefab => prefab.PlayerViewType, prefab => prefab);
     }
   }
 }
