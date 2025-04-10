@@ -13,6 +13,9 @@ namespace Project.Scripts.Architecture.CodeBase.Services.GlobalData.Types {
     public int GetPointsByReward(ObstacleName rewardName) {
       return _rewardConfigs.Find(rewardConfig => rewardConfig.ObstacleName == rewardName).Points;
     }
+    public Sprite GetRewardSprite(ObstacleName rewardName) {
+      return _rewardConfigs.Find(rewardConfig => rewardConfig.ObstacleName == rewardName).UISprite;
+    }
   }
 
   [Serializable]
@@ -21,6 +24,8 @@ namespace Project.Scripts.Architecture.CodeBase.Services.GlobalData.Types {
     private ObstacleName _name;
     [SerializeField]
     private int _points;
+    [SerializeField]
+    private Sprite _uiSprite;
 
     public ObstacleName ObstacleName {
       get {
@@ -31,6 +36,12 @@ namespace Project.Scripts.Architecture.CodeBase.Services.GlobalData.Types {
     public int Points {
       get {
         return _points;
+      }
+    }
+
+    public Sprite UISprite {
+      get {
+        return _uiSprite;
       }
     }
   }

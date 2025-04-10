@@ -1,12 +1,12 @@
 using System;
 using Project.Scripts.Architecture.CodeBase.UI.Core;
+using Project.Scripts.Architecture.CodeBase.UI.Panels.Lobby.MatchResults;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Project.Scripts.Architecture.CodeBase.UI.Panels.Lobby {
   public class LobbyNavigationPanel : UIPanel {
     public event Action OnPlayButtonClick;
-    public event Action OnHistoryButtonClick;
     
     [SerializeField]
     private Button _playButton;
@@ -27,7 +27,7 @@ namespace Project.Scripts.Architecture.CodeBase.UI.Panels.Lobby {
     }
 
     private void HistoryButtonClick() {
-      OnHistoryButtonClick?.Invoke();
+      UiManager.Show<MatchResultsPanel>();
     }
 
     private void PlayButtonClick() {

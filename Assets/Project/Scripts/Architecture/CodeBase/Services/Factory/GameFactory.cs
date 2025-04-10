@@ -18,9 +18,9 @@ namespace Project.Scripts.Architecture.CodeBase.Services.Factory {
     }
 
     public T Create<T>() where T : FactoryPrefab {
-      var returnedObject = Object.Instantiate(_prefabMap[typeof(T)]) as T;
-      _container.Inject(returnedObject);
-      return returnedObject;
+      FactoryPrefab prefab = _prefabMap[typeof(T)];
+      GameObject instance = _container.InstantiatePrefab(prefab);
+      return instance.GetComponent<T>();
     }
     
     public void Init() {

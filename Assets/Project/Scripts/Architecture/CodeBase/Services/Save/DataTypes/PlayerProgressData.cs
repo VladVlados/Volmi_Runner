@@ -26,7 +26,13 @@ namespace Project.Scripts.Architecture.CodeBase.Services.Save.DataTypes {
         return _levelConfiguration;
       }
     }
-    
+
+
+    public List<MatchResult> Results {
+      get {
+        return _results;
+      }
+    }
   }
 
   [Serializable]
