@@ -17,6 +17,7 @@ namespace Project.Scripts.Architecture.CodeBase.GameStates.States.Gameplay {
     private ILevelMoveSimulator _levelMoveSimulator;
     private IPlayerCollisionHandler _playerCollisionHandler;
     private IPlayerMoveController _playerMoveController;
+    private IPlayerViewProvider _playerViewProvider;
     
     public GameplayState(IGlobalDataService globalDataService, IDataProvider dataProvider, IUIManager uiManager) {
       _globalDataService = globalDataService;
@@ -32,6 +33,7 @@ namespace Project.Scripts.Architecture.CodeBase.GameStates.States.Gameplay {
 
       _levelMoveSimulator.StartMove(configurationInfo);
       _playerMoveController.StartMoveInput();
+      _playerViewProvider.CurrentView.SelectAnimation(PlayerAnimationType.Rum);
       _uiManager.Show<GameplayProgressPanel>();
     }
 
@@ -45,6 +47,7 @@ namespace Project.Scripts.Architecture.CodeBase.GameStates.States.Gameplay {
       _levelMoveSimulator = _container.Resolve<ILevelMoveSimulator>();
       _playerCollisionHandler = _container.Resolve<IPlayerCollisionHandler>();
       _playerMoveController = _container.Resolve<IPlayerMoveController>();
+      _playerViewProvider = _container.Resolve<IPlayerViewProvider>();
       _playerCollisionHandler.OnObstacleCollision += OnObstacleCollision;
     }
 

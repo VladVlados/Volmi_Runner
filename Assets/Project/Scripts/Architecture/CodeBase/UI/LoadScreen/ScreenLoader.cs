@@ -13,8 +13,6 @@ namespace Project.Scripts.Architecture.CodeBase.UI.LoadScreen {
     private ScreenLoaderAnimation _loaderAnimation;
     [SerializeField]
     private CanvasGroup _interactableGroup;
-    [SerializeField]
-    private Button _skipButton;
 
     private ICoroutineHandler _coroutineHandler;
     private Coroutine _introRoutine;
@@ -22,11 +20,6 @@ namespace Project.Scripts.Architecture.CodeBase.UI.LoadScreen {
     [Inject]
     public void Construct(ICoroutineHandler coroutineHandler) {
       _coroutineHandler = coroutineHandler;
-      AddListeners();
-    }
-
-    private void OnDestroy() {
-      RemoveListeners();
     }
 
     public void StartIntro() {
@@ -40,25 +33,7 @@ namespace Project.Scripts.Architecture.CodeBase.UI.LoadScreen {
       _interactableGroup.interactable = false;
       _interactableGroup.blocksRaycasts = false;
       _interactableGroup.alpha = 0f;
-      _loaderAnimation.Stop();
-    }
-
-    private void AddListeners() {
-      _skipButton.onClick.AddListener(SkipLoadingScreen);
-    }
-
-    private void RemoveListeners() {
-      _skipButton.onClick.RemoveListener(SkipLoadingScreen);
-    }
-
-    private void SkipLoadingScreen() {
       _coroutineHandler.StopCoroutine(_introRoutine);
-      _loaderAnimation.Stop();
-    }
-
-    private IEnumerator ShowIntroRoutine() {
-      _loaderAnimation.Play();
-      yield return new WaitForSeconds(INTRO_TIME);
       _loaderAnimation.Stop();
     }
 
@@ -66,6 +41,12 @@ namespace Project.Scripts.Architecture.CodeBase.UI.LoadScreen {
       get {
         return _loaderAnimation.IsPlaying;
       }
+    }
+
+    private IEnumerator ShowIntroRoutine() {
+      _loaderAnimation.Play();
+      yield return new WaitForSeconds(INTRO_TIME);
+      _loaderAnimation.Stop();
     }
   }
 

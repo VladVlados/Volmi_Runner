@@ -1,5 +1,6 @@
 using Project.Scripts.Architecture.CodeBase.Gameplay.Level;
 using Project.Scripts.Architecture.CodeBase.Gameplay.Meta;
+using Project.Scripts.Architecture.CodeBase.Gameplay.Player;
 using Project.Scripts.Architecture.CodeBase.GameStates.States.Lobby;
 using Project.Scripts.Architecture.CodeBase.UI.Core;
 using Project.Scripts.Architecture.CodeBase.UI.Panels.Gameplay;
@@ -9,6 +10,7 @@ namespace Project.Scripts.Architecture.CodeBase.GameStates.States.Gameplay {
     private readonly IUIManager _uiManager;
 
     private IPlayerRewardHandler _playerRewardHandler;
+    private IPlayerViewProvider _playerViewProvider;
     private ILevelMoveSimulator _levelMoveSimulator;
     private LosePanel _losePanel;
 
@@ -22,6 +24,7 @@ namespace Project.Scripts.Architecture.CodeBase.GameStates.States.Gameplay {
       _levelMoveSimulator.StopMove();
       LosePanel.SetupResult(_playerRewardHandler.Result);
       LosePanel.OnLobbyButtonClick += OnLobbyButtonClick;
+      _playerViewProvider.CurrentView.SelectAnimation(PlayerAnimationType.Idle);
       _uiManager.Show<LosePanel>();
     }
 
@@ -39,6 +42,7 @@ namespace Project.Scripts.Architecture.CodeBase.GameStates.States.Gameplay {
     private void SceneResolve() {
       _playerRewardHandler = _container.Resolve<IPlayerRewardHandler>();
       _levelMoveSimulator = _container.Resolve<ILevelMoveSimulator>();
+      _playerViewProvider = _container.Resolve<IPlayerViewProvider>();
     }
 
     private LosePanel LosePanel {

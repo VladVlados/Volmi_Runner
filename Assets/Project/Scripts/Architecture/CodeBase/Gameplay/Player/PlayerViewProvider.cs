@@ -19,6 +19,7 @@ namespace Project.Scripts.Architecture.CodeBase.Gameplay.Player {
     public void CreateActualPlayerView() {
       ActualizePlayerViewData();
       CurrentView = _playerViewPool.Get();
+      CurrentView.SelectAnimation(PlayerAnimationType.Idle);
     }
 
     public void ClearPlayerView() {
