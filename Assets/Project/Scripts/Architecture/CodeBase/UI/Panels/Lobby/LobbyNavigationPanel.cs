@@ -7,11 +7,13 @@ using UnityEngine.UI;
 namespace Project.Scripts.Architecture.CodeBase.UI.Panels.Lobby {
   public class LobbyNavigationPanel : UIPanel {
     public event Action OnPlayButtonClick;
-    
+
     [SerializeField]
     private Button _playButton;
     [SerializeField]
     private Button _historyButton;
+    [SerializeField]
+    private Button _settingsButton;
 
     private void Awake() {
       AddListeners();
@@ -24,6 +26,11 @@ namespace Project.Scripts.Architecture.CodeBase.UI.Panels.Lobby {
     private void AddListeners() {
       _playButton.onClick.AddListener(PlayButtonClick);
       _historyButton.onClick.AddListener(HistoryButtonClick);
+      _settingsButton.onClick.AddListener(SettingsButtonClick);
+    }
+
+    private void SettingsButtonClick() {
+      UiManager.Show<LobbySettingsPanel>();
     }
 
     private void HistoryButtonClick() {
@@ -35,8 +42,9 @@ namespace Project.Scripts.Architecture.CodeBase.UI.Panels.Lobby {
     }
 
     private void RemoveListeners() {
-      _playButton.onClick.AddListener(PlayButtonClick);
-      _historyButton.onClick.AddListener(HistoryButtonClick);
+      _playButton.onClick.RemoveListener(PlayButtonClick);
+      _historyButton.onClick.RemoveListener(HistoryButtonClick);
+      _settingsButton.onClick.RemoveListener(SettingsButtonClick);
     }
   }
 }

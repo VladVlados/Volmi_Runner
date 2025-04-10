@@ -8,7 +8,7 @@ namespace Project.Scripts.Architecture.CodeBase.Services.Lobby {
     void ShowLobbyEnvironment(EnvironmentName targetEnvironment);
   }
 
-  public class LobbyEnvironmentHandler : IService, ILobbyEnvironmentHandler {
+  public class LobbyEnvironmentHandler : ILobbyEnvironmentHandler {
     private readonly IGlobalDataService _globalDataService;
     private readonly IGameFactory _gameFactory;
 
