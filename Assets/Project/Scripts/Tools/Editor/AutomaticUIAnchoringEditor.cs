@@ -1,8 +1,8 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Project.Scripts.Tools {
-  public class AutomaticUIAnchoringEditor : Editor{
+namespace Project.Scripts.Tools.Editor {
+  public class AutomaticUIAnchoringEditor : UnityEditor.Editor{
     private static void Anchor(RectTransform rectTransform) {
       RectTransform parentRectTransform = null;
       if (rectTransform.transform.parent) {
